@@ -1,0 +1,250 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8faff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease; /* Smooth background color change */
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #007bff, #6f42c1); /* Gradient background */
+  color: #fff;
+  border-bottom: 2px solid #ddd; /* Soft border for separation */
+  animation: fadeIn 1s ease-out; /* Fade-in effect */
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #f1f1f1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dashboard-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-gap: 20px;
+  max-width: 1300px; /* Maximum width for the gallery */
+  margin: 20px auto;
+  padding: 20px;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dashboard-gallery:hover {
+  transform: translateY(-5px); 
+}
+
+.dashboard-description {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.dashboard-description strong {
+  color: #007bff;
+}
+
+.dashboard {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Larger shadow for depth */
+  padding: 10px;
+  height: 500px; /* Fixed height for each dashboard */
+  display: flex;
+  flex-direction: column; /* Ensure content is stacked vertically */
+  transition: transform 0.3s ease;  /*Smooth transition for hover effect */
+  /* Animate dashboard appearance from top to bottom */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.8s ease-out forwards;
+}
+
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.dashboard:hover {
+  transform: scale(1.03); 
+}
+
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #6f42c1; /* Purple color for the title */
+  font-size: 1.4em;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1; /* Allows carousel to take up remaining space */
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+  width: 100%; /* Ensure the images scale to fit the carousel */
+  height: 100%; /* Make images take up the full height of the carousel */
+  object-fit: cover; /* Ensure images don't stretch */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+
+/*.carousel-slides img:hover {
+  transform: scale(1.1); 
+}*/
+
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 123, 255, 0.8);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+  background-color: #28a745; /* Green background on hover */
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  animation: lightboxFadeIn 0.5s ease-in-out; /* Fade-in effect for lightbox */
+}
+
+@keyframes lightboxFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.lightbox img {
+  max-width: 80%; /* Limit image size to 80% of the screen width */
+  max-height: 80%; /* Limit image size to 80% of the screen height */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Shadow for the image */
+  transition: transform 0.3s ease;
+}
+
+.lightbox img:hover {
+  transform: scale(1.05); /* Zoom effect on image hover */
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  color: #333;
+  border: none;
+  font-size: 30px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-lightbox:hover {
+  background-color: #dc3545; /* Red background on hover */
+  color: #fff;
+}
+
+/* Additional hover effect for a nice button */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #28a745;
+  /*transform: scale(1.05); *//* Slight zoom on button hover */
+}
+
+.return-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  color: #007bff; /* Blue text */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for visibility */
+  z-index: 9999; /* Ensures it's above all other content */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+  text-decoration: none;
+}
+
+.return-btn.scrolled {
+  background-color: #007bff; /* Blue background after scrolling */
+  color: #fff; /* White text for contrast */
+  border: none; /* No border when scrolled */
+}
+
+/* Specific hover for the return button */
+.return-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important; /* Semi-transparent white */
+  color: #007bff; /* Blue text */
+  border: 2px solid #007bff; /* Blue border */
+  transform: none; /* Prevent scaling if applied globally */
+}
