@@ -257,6 +257,20 @@ nav {
   }
 }
 
+i:hover {
+  opacity: 0.7;
+}
+
+.about-me__link i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-me__link:hover i {
+  color: #6030b1; /* matches your accent color */
+  transform: scale(1.2);
+  opacity: 1; /* Keeps it visible and bold */
+}
+
 .wave {
   display: inline-block;
   animation: animate-wave 500ms infinite ease-in-out;
